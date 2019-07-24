@@ -7,3 +7,8 @@ def is_prime(n):
         if n % f == 0:
             return False
     return True if n != 1 else False
+
+
+
+if __name__ == '__main__':
+    print(is_prime(4))
