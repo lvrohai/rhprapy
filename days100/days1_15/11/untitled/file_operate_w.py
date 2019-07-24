@@ -1,4 +1,5 @@
 from math import sqrt
+import json
 
 def is_prime(n):
     """ 判断素数 """
@@ -29,6 +30,38 @@ def main():
         fs.close()
     print("结束")
 
+def main1():
+    try:
+        with open("i_f04.png",'rb') as fs1:
+            data = fs1.read()
+            print(type(data))
+        with open("i_f04_2.png",'wb')as fs2:
+            fs2.write(data)
+    except FileNotFoundError:
+        print("无法打开文件")
+    except IOError:
+        print("io错误")
+    print("结束")
+
+def main2():
+    mydict = {
+        'name': 'Diogenes',
+        'age' : 18,
+        'email': 'd@163.com',
+        'friends':['白熊','panda'],
+        'cars':[
+            {'brand':'BYD','max_speed':180},
+            {'brand':'Audi','max_speed':280},
+            {'brand':'Benz','max_speed':380}
+        ]
+    }
+    try:
+        with open('data.json','w',encoding='utf-8') as fs:
+            json.dump(mydict,fs)
+    except IOError as e:
+        print(e)
+    print('结束')
+
 if __name__ == '__main__':
     print(is_prime(4))
-    main()
+    main2()
