@@ -3,6 +3,7 @@ from math import log2, factorial
 
 def seq_search(items: list, elem) -> int:
     """顺序查找"""
+    # 对于一个可迭代的（iterable）/可遍历的对象（如列表、字符串），enumerate将其组成一个索引序列，利用它可以同时获得索引和值
     for index, item in enumerate(items):
         if elem == item:
             return index
